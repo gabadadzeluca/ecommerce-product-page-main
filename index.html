@@ -11,8 +11,19 @@
  
 </head>
 <body> 
+  <div class="pop-up-menu">
+    <!-- close btn -->
+    <img src="../images/icon-close.svg" class="close-btn">  
+    <nav class="mobile">
+      <a>Collections</a>
+      <a>Men</a>
+      <a>Women</a>
+      <a>About</a>
+      <a>Contact</a>
+    </nav>
+  </div>
   <div class="wrapper">
-
+    
     <header>
       <div>
         <img src="../images/icon-menu.svg" class="menu mobile">
@@ -25,11 +36,12 @@
         <a>About</a>
         <a>Contact</a>
       </nav>
-      <div>
+      <div class="user">
         <img alt="cart" src=".//images/icon-cart.svg">
-        <img alt="pfp" src="../images/image-avatar.png">
+        <img alt="pfp" src="../images/image-avatar.png" class="profile-pic">
       </div>
     </header>
+    
     <main>
       <!-- div for imgs -->
       <!--slider div mobile -->
@@ -41,14 +53,14 @@
           <img src="../images/image-product-4.jpg">
         </div>
         <div class="arrows-container">
-          <img class="arrow-left" src="../images/icon-previous.svg">
-          <img class="arrow-right" src="../images/icon-next.svg">
+          <div class="arrow-left"></div>
+          <div class="arrow-right"></div>
         </div>
        
       </div>
 
-      <div>
-        <p>
+      <div class="product-info-container">
+        <p class="company">
           Sneaker Company
         </p>
         <h2>
@@ -56,20 +68,20 @@
         </h2>
         <p>
            These low-profile sneakers are your perfect casual wear companion. Featuring a 
-           durable rubber outer sole, they’ll withstand everything the weather can offer.
+           durable rubber outer sole, they'll withstand everything the weather can offer.
         </p>
         
         <!-- price div -->
-        <div>
-          <div>
-            <p class="active-price">$125.00</p>
+        <div class="price-container">
+          <div class="active-price">
+            <h2 >$125.00</h2>
             <span>50%</span>
           </div>
           <p class="inactive-price">$250.00</p>
         </div>
        
-        <div class="buttons-div">
-          <div>
+        <div class="buttons-container">
+          <div class="number-counter-container">
             <span class="minus">-</span>
             <span class="num-items">0</span>
             <span class="plus">+</span>
