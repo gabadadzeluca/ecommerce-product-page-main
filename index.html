@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+
+ 
+</head>
+<body> 
+  <div class="wrapper">
+
+    <header>
+      <div>
+        <img src="../images/icon-menu.svg" class="menu mobile">
+        <img src="../images/logo.svg" class="logo">
+      </div>
+      <nav class="desktop">
+        <a>Collections</a>
+        <a>Men</a>
+        <a>Women</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      <div>
+        <img alt="cart" src=".//images/icon-cart.svg">
+        <img alt="pfp" src="../images/image-avatar.png">
+      </div>
+    </header>
+    <main>
+      <!-- div for imgs -->
+      <!--slider div mobile -->
+      <div class="slider-container mobile">
+        <div class="slider">
+          <img src="../images/image-product-1.jpg">
+          <img src="../images/image-product-2.jpg">
+          <img src="../images/image-product-3.jpg">
+          <img src="../images/image-product-4.jpg">
+        </div>
+        <div class="arrows-container">
+          <img class="arrow-left" src="../images/icon-previous.svg">
+          <img class="arrow-right" src="../images/icon-next.svg">
+        </div>
+       
+      </div>
+
+      <div>
+        <p>
+          Sneaker Company
+        </p>
+        <h2>
+          Fall Limited Edition Sneakers
+        </h2>
+        <p>
+           These low-profile sneakers are your perfect casual wear companion. Featuring a 
+           durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+        
+        <!-- price div -->
+        <div>
+          <div>
+            <p class="active-price">$125.00</p>
+            <span>50%</span>
+          </div>
+          <p class="inactive-price">$250.00</p>
+        </div>
+       
+        <div class="buttons-div">
+          <div>
+            <span class="minus">-</span>
+            <span class="num-items">0</span>
+            <span class="plus">+</span>
+          </div>
+          <button>
+            Add to cart
+          </button>
+        </div>
+        
+      </div>
+    </main>
+
+    
+  </div>
+  
+</body>
+</html>
