@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root{
+    --orange:#FF7E1B;
+    --light-orange:#FFEEE2;
+    --light-blue: #F6F8FD;
+    --gray:#69707D;
+    --black:#1D2026;
+    --light-gray:#B6BCC8;
+    --bg-color:#F2F2F2;
+    --bold: 700;
+    --medium: 400;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Kumbh Sans', sans-serif;
+    *{
+        font-family: 'Kumbh Sans', sans-serif;
+        box-sizing: border-box;
+    }
+}
+
+button{
+    font-size: 1.6rem;
+    font-weight: var(--bold);
+    border: none;
+    background-color: var(--orange);
+    color: white;
+    box-sizing: border-box;
+    min-width: 32.7rem;
+    min-height: 5.6rem;
+    border-radius: 1rem;
+    box-shadow: 0px 20px 50px -20px #FF7E1B;
+    width: 95%
+}
+
+header{
+    display: inline-flex;
+    width: 95%;
+    min-height: 7em;
+    justify-content: space-between;
+    align-items: center;
+    .user{
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 6.5rem;
+        .profile-pic{
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+    }
+}
+
+
+
+.wrapper{
+    min-width: 32.7rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-container{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    .slider{
+        display: flex;
+        max-height: 30rem;
+        overflow: hidden;
+        *{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .arrow-left, .arrow-right{  
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .arrow-right{
+        left: 85%;
+    }
+    .arrow-left{
+        right: 85%;
+    }
+    
+}
+
+.arrow-left, .arrow-right{
+    width: 4rem;
+    height: 4rem;
+    box-sizing: border-box;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.arrow-left{
+    background-image: url("../images/icon-previous.svg");
+}
+.arrow-right{
+    background-image: url("../images/icon-next.svg");
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons-container{
+    min-width: 32.7rem;
+    width: 95%;
+    height: 12.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .number-counter-container{
+        width: inherit;
+        display: inline-flex;
+        height: 5.6rem;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--light-blue);
+        font-weight: var(--bold);
+        padding: 2.3rem;
+        font-size: 1.6rem;
+        color: var(--orange);
+        .num-items{
+            color: var(--black);
+        }
+    }
+}
+
+.product-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width:32.7rem;
+    width: 95%;
+    h2{
+        align-self: flex-start;
+        font-size: 2.8rem;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+    .company{
+        color: var(--orange);
+        font-size: 1.2rem;
+        font-weight: var(--bold);
+        align-self: flex-start;
+    }
+}
+
+.price-container{
+    width: 100%;
+    font-weight: var(--bold);
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .active-price{
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 17.3rem;
+        span{
+            box-sizing: border-box;
+            width: 5.1rem;
+            padding: 0.4rem 0.8rem;
+            height: 2.8rem;
+            color: var(--orange);
+            background-color: var(--light-orange);
+            border-radius: 0.6rem;
+            text-align: center;
+        }
+    }
+    .inactive-price{
+        text-decoration: line-through;
+        color: var(--light-gray);
+    }
+}
+
+.desktop{
+    display: none;
+}
+
+.pop-up-menu{
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 70%;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+    nav{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.8rem;
+        font-weight: var(--bold);
+        *{
+            padding: 2.5rem;
+        }
+    }
+    img{
+        padding: 2.5rem;
+    }
+}
