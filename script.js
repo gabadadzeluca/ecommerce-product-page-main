@@ -29,11 +29,6 @@ arrowLeft.addEventListener('click', ()=>{
     slider.style.transform = 'translateX(' + (-size * current) + 'px)';
 });
 
-
-window.onresize = function() {
-    location.reload();
-};
-
 slider.addEventListener('transitionend', () => {
     console.log(sliderImgs[current]);
     if (sliderImgs[current].id === 'first-clone') {
@@ -47,3 +42,7 @@ slider.addEventListener('transitionend', () => {
         slider.style.transform = `translateX(${-size * current}px)`;
     }
   });
+
+  window.onresize = function() {
+    location.reload();
+};
