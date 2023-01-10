@@ -21,11 +21,15 @@ minus.addEventListener('click',()=>{
 });
 
 
-
 class Cart{
     constructor(){
         this.items = [];
         this.count = this.items.length;
+        if(!localStorage.getItem('cart')){
+            this.items = [];
+        }else{
+            this.items = JSON.parse(localStorage.getItem('cart'));
+        }
     }
     addItem(item) {
         this.items.push(item);
@@ -50,15 +54,12 @@ if(!localStorage.getItem('cart')){
 }
 
 
-// show items, if they are in cart
+// show item count in cart
 displayItemsInCart();
 
 let count = 0; 
 
-
-
 function updateCart(){
-
     for(let i = 0; i<count; i++){
         // add item to the cart
         cart.addItem('Fall Limited Edition Sneakers');
@@ -74,8 +75,20 @@ function updateCart(){
 }
 
 function displayItemsInCart() {
-    if(parseInt(localStorage.getItem('count')) == 0) return;
-
+    if(parseInt(localStorage.getItem('count')) == 0) return; // don't display if no items in the cart
     cartPopUp.innerHTML = localStorage.getItem('count');
     cartPopUp.style.display = 'block';
 }
+
+
+const cartIconDiv = document.querySelector('.cart-icon-div');
+const cartDiv = document.querySelector('.cart');
+// display and hide cart
+
+cartIconDiv.addEventListener("mouseover", ()=>{
+  cartDiv.style.display = "flex";
+});
+
+cartIconDiv.addEventListener("mouseout", ()=>{
+  cartDiv.style.display = "none";
+});
