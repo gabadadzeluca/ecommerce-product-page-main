@@ -23,22 +23,19 @@ minus.addEventListener('click',()=>{
 
 class Cart{
     constructor(){
-        this.items = [];
+        this.items = JSON.parse(localStorage.getItem('cartItems')) || [];
         this.count = this.items.length;
-        if(!localStorage.getItem('cart')){
-            this.items = [];
-        }else{
-            this.items = JSON.parse(localStorage.getItem('cart'));
-        }
     }
     addItem(item) {
         this.items.push(item);
         this.count = this.items.length;
+        localStorage.setItem('cartItems', JSON.stringify(this.items));
     }
     removeItem(item) {
         const index = this.items.indexOf(item);
         this.items.splice(index, 1);
         this.count = this.items.length;
+        localStorage.setItem('cartItems', JSON.stringify(this.items));
     }
 }
 
@@ -47,11 +44,8 @@ const cart = new Cart();
 
 if(!localStorage.getItem('count')){
     localStorage.setItem('count', cart.items.length);
-    
 }
-if(!localStorage.getItem('cart')){
-    localStorage.setItem('cart', JSON.stringify(cart.items));
-}
+
 
 
 // show item count in cart
@@ -68,7 +62,7 @@ function updateCart(){
     }
     // update local storage
     let updatedCount = parseInt(localStorage.getItem('count')) + count;
-    localStorage.setItem('cart', JSON.stringify(cart.items));
+    localStorage.setItem('cartItems', JSON.stringify(cart.items));
     localStorage.setItem('count', updatedCount); 
     //reset values
     numItemsSpan.innerHTML = count = 0;
@@ -85,12 +79,9 @@ function displayItemsInCart() {
 
 const cartIconDiv = document.querySelector('.cart-icon-div');
 const cartDiv = document.querySelector('.cart');
-
+const deleteBtn = document.querySelector('.cart .delete-btn');
 
 // display and hide cart
-
-
-
 cartDiv.style.display = 'none';
 cartIconDiv.addEventListener('click', ()=>{
     if(cartDiv.style.display == 'none'){
@@ -98,6 +89,20 @@ cartIconDiv.addEventListener('click', ()=>{
     }else{
         cartDiv.style.display = 'none';
     }
+});
+// hide if clicked anywhere
+document.body.addEventListener('click', (e)=> {
+    if (!cartDiv.contains(e.target) && !cartIconDiv.contains(e.target)) {
+        cartDiv.style.display = 'none';
+    }
+});
+
+// remove item from the cart
+deleteBtn.addEventListener('click', ()=>{
+    cart.removeItem('Fall Limited Edition Sneakers');
+    localStorage.setItem('count', cart.items.length);
+    displayItemsInCart();
+    displayPrice();
 });
 
 function displayPrice(){
