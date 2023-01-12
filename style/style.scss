@@ -2,6 +2,7 @@
 
 :root{
     --orange:#FF7E1B;
+    --orange-hover: #FFAB6A;
     --light-orange:#FFEEE2;
     --light-blue: #F6F8FD;
     --gray:#69707D;
@@ -140,6 +141,7 @@ header{
 
 
 main{
+    margin-bottom: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,7 +241,7 @@ main{
     display: none;
     position: fixed;
     height: 100%;
-    width: 70%;
+    width: 70vw;
     top:0;
     left: 0;
     bottom: 0;
@@ -271,7 +273,6 @@ main{
     background-color: white;
     flex-direction: column;
     padding: 2.4rem 2.4rem 3.6rem;
-    // display: flex;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
@@ -338,7 +339,6 @@ main{
     }
     .desktop{
         display: flex;
-        // display: block;
     }
     header,main{
         width: 80%;
@@ -350,7 +350,9 @@ main{
         justify-content: space-around;
         align-items: center;
     }
-
+    button:hover{
+        cursor: pointer;
+    }
     header{
         margin-top: 3rem;
         >:first-child{
@@ -367,6 +369,10 @@ main{
             a{
                 font-size: 1.5rem;
             }
+            a:hover{
+                cursor: pointer;
+                color: var(--black);
+            }
         }
         .user{
             min-width: 14rem;
@@ -374,13 +380,23 @@ main{
                 width: 5rem;
                 height: 5rem;
             }
+            .profile-pic:hover{
+                outline: 0.2px solid var(--orange);
+                border-radius: 50%;
+            }
+            img:hover{
+                cursor: pointer;
+            }
         }
     }
 
     .img-container{
         width: 40%;
         min-height: 56rem;
-        max-width: 100rem;
+        max-width: 70rem;
+        img:hover{
+            cursor: pointer;
+        }
         .small-imgs{
             width: 100%;
             justify-content: space-between;
@@ -389,6 +405,10 @@ main{
             img{
                 width: 22%;
                 border-radius: 1rem;
+            }
+            img:hover{
+                outline: 0.2rem solid var(--orange);
+                filter: brightness(0.7);
             }
         }
         .main-img{
@@ -420,11 +440,94 @@ main{
     }
     .buttons-container{
         flex-direction: row;
+        justify-content: space-between;
         .number-counter-container{
             width: 35%;
+            *:not(.num-items):hover{
+                cursor: pointer;
+                color: var(--orange-hover);
+            }
         }
         .add-to-cart{
             width: 60%;
         }
+        .add-to-cart:hover{
+            background-color: var(--orange-hover);
+        }
+    }
+
+
+    .slider-container.desktop{
+        left: 50%;
+        top:50%;
+        z-index: 1;
+        transform: translateX(-50%) translateY(-50%);
+        position: fixed;
+        max-width: 55rem;
+        width: 40%;
+        align-items: center;
+        overflow: hidden;
+        display: none;
+        img:hover{
+            cursor: pointer;
+        }
+
+        .slider{
+            display: flex;
+            max-height: 55rem;
+            *{
+                border-radius: 1rem;
+                object-fit: contain;
+                width:100%;
+            }
+        }
+       
+        .arrow-left, .arrow-right{  
+            top: 45%;
+            width: 5.6rem;
+            height: 5.6rem;
+        }
+        .arrow-left:hover, .arrow-right:hover{
+            cursor: pointer;
+        }
+        .arrow-right{
+            left: 90%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .arrow-left{
+            right: 90%;
+            transform: translateX(50%) translateY(-50%);
+        }
+        .small-imgs-slider{
+            max-width: 80%;
+            justify-content: space-between;
+            display: inline-flex;
+            margin-top: 2rem;
+            img{
+                border-radius: 1rem;
+                width: 20%;
+            }
+            img:hover{
+                outline: 0.2rem solid var(--orange);
+                filter: brightness(0.7);
+            }
+        }
+        .close-btn{
+            border: none;
+            align-self: flex-end;
+            margin-bottom: 2rem;
+        }
+        .close-btn:hover{
+            cursor: pointer;
+            path{
+                fill: var(--orange);
+            }
+        }
+    }
+    .cart{
+        position: absolute;
+        top:5rem;
+        z-index: 1;
     }
 }
+
