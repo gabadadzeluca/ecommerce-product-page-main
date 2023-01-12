@@ -81,12 +81,13 @@ function displayItemsInCart() {
 
 
 const cartIconDiv = document.querySelector('.cart-icon-div');
+const cartIcon = cartIconDiv.querySelector('img');
 const cartDiv = document.querySelector('.cart');
 const deleteBtn = document.querySelector('.cart .delete-btn');
 
 // display and hide cart
 cartDiv.style.display = 'none';
-cartIconDiv.addEventListener('click', ()=>{
+cartIcon.addEventListener('click', ()=>{
     if(cartDiv.style.display == 'none'){
         cartDiv.style.display = 'flex';
     }else{
@@ -132,3 +133,15 @@ function displayPrice(){
     }
 }
 
+let width = window.screen.width;
+
+
+if(width >= 1000){
+    document.body.removeChild(cartDiv);
+    // append to the header
+    cartDiv.classList.add('desktop');
+    cartIconDiv.appendChild(cartDiv);
+}else{
+    cartDiv.classList.remove('desktop');
+    document.body.appendChild(cartDiv);
+}
