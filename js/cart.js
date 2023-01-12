@@ -133,10 +133,21 @@ function displayPrice(){
     }
 }
 
-let width = window.screen.width;
+// add hover to user profile pic
+const userPic = document.querySelector('.user>img');
+
+userPic.addEventListener('mouseover', ()=>{
+    cartDiv.style.display = 'flex';
+});
+userPic.addEventListener('mouseout', ()=>{
+    cartDiv.style.display = 'none';
+});
 
 
-if(width >= 1000){
+// display cart according to screen width
+const query = window.matchMedia("(min-width: 1000px)");
+
+if(query.matches){
     document.body.removeChild(cartDiv);
     // append to the header
     cartDiv.classList.add('desktop');
