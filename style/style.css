@@ -96,6 +96,7 @@ header .user .items-in-cart {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .slider-container .slider {
   display: flex;
