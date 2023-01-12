@@ -2,26 +2,28 @@
 
 // add slider efect
 
-const slider = document.querySelector('.slider');
-const sliderImgs = document.querySelectorAll('.slider img');
-const arrowLeft = document.querySelector('.arrow-left');
-const arrowRight = document.querySelector('.arrow-right');
-
-
 // mobile slider
-sliderFunc(slider, arrowLeft, arrowRight);
+const sliderMobile = document.querySelector('#slider-mobile');
+sliderFunc(sliderMobile);
 
-function sliderFunc(slider, arrowLeft, arrowRight){
+// desktop slider
+const sliderDesktop = document.getElementById('slider-desktop');
+const sliderContainerDesktop = document.querySelector('.slider-container.desktop');
+sliderFunc(sliderDesktop);
+
+function sliderFunc(slider, current = 1){
     const sliderImgs = slider.querySelectorAll('img');
-
-    let current = 1;
+    const arrowLeft = slider.parentElement.querySelector('.arrow-left');
+    const arrowRight = slider.parentElement.querySelector('.arrow-right');
     let size = sliderImgs[0].clientWidth;
     
+    // set the first image & navigate to the clicked element
+    if(current != 1){
+        slider.style.transition = 'none';
+    }
+    slider.style.transform = 'translateX(' + (-size*current) + 'px)';
+    // slider.style.transition = 'transform 0.2s ease-in-out';
 
-    // set the first image
-    slider.style.transform = 'translateX(' + (-size) + 'px)';
-    
-    
     arrowRight.addEventListener('click', ()=>{
         if(current >= 5) return;
         slider.style.transition = 'transform 0.4s ease-in-out';
@@ -56,16 +58,46 @@ function sliderFunc(slider, arrowLeft, arrowRight){
 }
 
 
+// navigation for desktop slider
+const sliderSmallImgs = document.querySelectorAll('.small-imgs-slider img');
+sliderSmallImgs.forEach(img=>{
+    img.addEventListener('click', changeSlide);
+});
+
+function changeSlide(){
+    let num = (this.getAttribute('num')); // get n from id=img-n  
+    sliderFunc(sliderDesktop, num); // jump to that slide
+}
+
+// display desktop images
 const mainImg = document.querySelector('.main-img img');
 const smallImgs = document.querySelectorAll('.small-imgs img');
 
 smallImgs.forEach(img=>{
-    img.addEventListener('click', displaySlider)
+    img.addEventListener('click', displaySlider);
 });
 
 mainImg.addEventListener('click', displaySlider);
-function displaySlider(){
-    console.log(this.id);
-    // display slider for desktop
 
+function displaySlider(){
+    let num = this.getAttribute('num');
+    // display slider for desktop
+    sliderContainerDesktop.style.display = 'flex';
+    sliderFunc(sliderDesktop, num);
 }
+
+// hide desktop slider after click
+document.addEventListener('click', (e)=> {
+    if (!sliderContainerDesktop.contains(e.target) && ! document.querySelector('.img-container').contains(e.target)
+        || document.querySelector('.close-btn').contains(e.target)){
+
+        sliderContainerDesktop.style.display = 'none';
+        document.body.style.overflow = 'visible'; // enable scroll
+        document.querySelector('.wrapper').style.filter = 'brightness(100%)';
+        document.body.style.backgroundColor = 'white';
+    }else{
+        document.body.style.overflow = 'hidden'; // remove scroll
+        document.querySelector('.wrapper').style.filter = 'brightness(50%)';
+        document.body.style.backgroundColor = '#757873';
+    }
+});
