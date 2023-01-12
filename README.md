@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/gabadadzeluca/ecommerce-product-page-main)
-- Live Site URL: [Live URL]()
+- Live Site URL: [Live URL](https://gabadadzeluca.github.io/ecommerce-product-page-main/)
 
 ## My process
 
@@ -46,7 +46,7 @@ Users should be able to:
 
 ### What I learned
 
-I've made a looped image slider for the first time, worked with responsive design, interacted with the style from JavaScript and managed the page content from SASS.
+I've made a looped image slider for the first time, worked with responsive design, interacted with the style from JavaScript and managed the page content from SASS. I've used local storage to save user's cart, so it's saved after the page's closed.
 
 
 ### Continued development
