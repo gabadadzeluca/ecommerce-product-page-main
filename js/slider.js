@@ -88,15 +88,15 @@ function displaySlider(){
 
 // hide desktop slider after click
 document.addEventListener('click', (e)=> {
-    if (!sliderContainerDesktop.contains(e.target) && ! document.querySelector('.img-container').contains(e.target)
+    if (!sliderContainerDesktop.contains(e.target) && !document.querySelector('.img-container').contains(e.target)
         || document.querySelector('.close-btn').contains(e.target)){
 
         sliderContainerDesktop.style.display = 'none';
-        document.body.style.overflow = 'visible'; // enable scroll
+        document.body.style.overflowY = 'visible'; // enable scroll
         document.querySelector('.wrapper').style.filter = 'brightness(100%)';
         document.body.style.backgroundColor = 'white';
     }else{
-        document.body.style.overflow = 'hidden'; // remove scroll
+        document.body.style.overflowY = 'hidden'; // remove scroll
         document.querySelector('.wrapper').style.filter = 'brightness(50%)';
         document.body.style.backgroundColor = '#757873';
     }
